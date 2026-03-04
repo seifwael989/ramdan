@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Something Special 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at top,#ff9a9e,#fad0c4,#fad0c4);
+      font-family:'Reem Kufi Ink',sans-serif;
+      overflow:hidden;
+    }
+
+    .bg-hearts span{
+      position:absolute;
+      width:20px;
+      height:20px;
+      background:#ff4d88;
+      transform:rotate(45deg);
+      animation:float 8s linear infinite;
+      opacity:.5;
+    }
+    .bg-hearts span:before,
+    .bg-hearts span:after{
+      content:'';
+      position:absolute;
+      width:20px;
+      height:20px;
+      background:#ff4d88;
+      border-radius:50%;
+    }
+    .bg-hearts span:before{top:-10px;left:0}
+    .bg-hearts span:after{left:10px;top:0}
+
+    @keyframes float{
+      0%{
+        transform:translate(0,100vh) rotate(45deg) scale(.8);
+        opacity:.4;
+      }
+      25%{
+        transform:translate(40px,70vh) rotate(90deg) scale(1);
+        opacity:.6;
+      }
+      50%{
+        transform:translate(-40px,40vh) rotate(180deg) scale(1.1);
+        opacity:.8;
+      }
+      75%{
+        transform:translate(60px,10vh) rotate(270deg) scale(1);
+        opacity:.6;
+      }
+      100%{
+        transform:translate(-20px,-15vh) rotate(360deg) scale(.9);
+        opacity:0;
+      }
+    }
+      100%{transform:translateY(-10vh) rotate(45deg) scale(1.2)}
+    }
+
+    .container{
+      background:rgba(255,255,255,0.95);
+      padding:50px 35px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 15px 40px rgba(0,0,0,.15);
+      max-width:420px;
+      width:90%;
+      position:relative;
+      z-index:2;
+      animation:fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    h1{
+      color:#ff4d88;
+      margin-bottom:10px;
+      font-size:30px;
+    }
+
+    p{
+      color:#c23a55;
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    button{
+      background:linear-gradient(90deg,#ff6b81,#ff4d6d);
+      border:none;
+      color:white;
+      padding:12px 25px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:18px;
+      font-family:'Reem Kufi Ink',sans-serif;
+      transition:.3s;
+    }
+
+    button:hover{
+      transform:scale(1.08);
+    }
+
+    .login-box{
+      margin-top:25px;
+      display:none;
+      animation:fadeIn .8s ease;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-top:15px;
+      border-radius:10px;
+      border:2px solid #ffb6c1;
+      text-align:center;
+      font-size:18px;
+      font-family:'Reem Kufi Ink',sans-serif;
+      color:#ff4d88;
+      outline:none;
+    }
+
+    .message{
+      margin-top:15px;
+      min-height:28px;
+      font-size:17px;
+      color:#ff4d88;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="bg-hearts">
+    <span style="left:10%;animation-delay:0s"></span>
+    <span style="left:30%;animation-delay:2s"></span>
+    <span style="left:50%;animation-delay:4s"></span>
+    <span style="left:70%;animation-delay:1s"></span>
+    <span style="left:85%;animation-delay:3s"></span>
+  </div>
+
+  <div class="container">
+    <h1>في مفاجأة مستنياكي 💖</h1>
+    <p>بس الأول لازم تثبتي إنك مش زهايمر 😌</p>
+    <button onclick="showLogin()">ادخلي هنا</button>
+
+    <div class="login-box" id="loginBox">
+      <input type="password" id="pass" placeholder="اكتبي الباسورد" />
+      <div style="margin-top:8px;font-size:14px;color:#c23a55;opacity:.8;">هينت: باسورد تلفوني 😉</div>
+      <button style="margin-top:15px" onclick="checkPass()">دخول</button>
+      <div class="message" id="msg"></div>
+    </div>
+  </div>
+
+  <script>
+    let wrongCount = 0;
+
+    function showLogin(){
+      document.getElementById('loginBox').style.display='block';
+    }
+
+    function checkPass(){
+      const p = document.getElementById('pass').value.trim();
+      const msg = document.getElementById('msg');
+
+      if(p === '16102008992008'){
+        msg.style.color = '#00b894';
+        msg.textContent = 'صح يا قمر 💞';
+        setTimeout(()=>{
+          window.location.href='رسالة_حب_لحبيبتي.html';
+        },1000);
+      } else {
+        wrongCount++;
+        msg.style.color = '#ff4d88';
+        if(wrongCount === 1){
+          msg.textContent = 'اثبات الزهايمر 😂';
+        } else if(wrongCount === 2){
+          msg.textContent = 'تاريخك الاول بعد كدا انا 😤';
+        } else {
+          msg.textContent = 'استرها يارب 😢';
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
